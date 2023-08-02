@@ -72,6 +72,36 @@ main h2 {
     margin-left: 2px;
 }
 
+.formItem {
+    display: flex;
+    justify-content: flex-start;
+    margin: 5px;
+}
+.formLabel {
+    color: blue;
+    font-family: Verdana, sans-serif;
+    font-weight: bold;
+    flex-basis: 30%;
+    padding:2px;
+}
+.formInput {
+    flex-basis: 65%;
+    /* border-color: lightskyblue;
+    border-width: 1px; */
+    border:2px solid lightskyblue;
+    padding: 5px;
+}
+.formInput[type=checkbox] {
+    flex-basis: 20px;
+     outline: 2px solid lightskyblue; 
+    /* justify-content: flex-start; */
+    /* flex-shrink: 0;
+    flex-grow: 0; */
+}
+.submit {
+    display: flex;
+    justify-content: center;
+}
 footer {
     text-align: center;
     color: lightgrey;
