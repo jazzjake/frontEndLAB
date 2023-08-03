@@ -102,6 +102,13 @@ main h2 {
     display: flex;
     justify-content: center;
 }
+
+.directions p {
+    border-bottom: 3px solid lightskyblue;
+    color: lightskyblue;
+    padding: 4px;
+
+}
 footer {
     text-align: center;
     color: lightgrey;
