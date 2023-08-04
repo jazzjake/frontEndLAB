@@ -3,11 +3,13 @@
 export default class Suggestion {
 
     constructor(form) {
+        
         this.recipeName = form.elements["recipeName"];
         this.ingredients = form.elements["ingredients"];
         this.fullName = form.elements["fullName"];
         this.email = form.elements["email"];
         this.form = form;
+        this.elements = document.getElementsByClassName("formInput");
     }
 
     recipeName = "";
@@ -15,25 +17,30 @@ export default class Suggestion {
     fullName = "";
     email = "";
     form = "";
+    elements ="";
 
     send() {
-        if(!this.checkIt(this.recipeName, this.ingredients, this.fullName, this.email)) {
-            alert("Thank you " + this.fullName.value + " for your suggestion!");
+        const msg = document.getElementById("msg");
+        msg.style.display = "block";
+        if(!this.checkMissing(this.elements)) {
+            msg.innerHTML = "Thank you " + this.fullName.value + " for your suggestion."
             this.form.reset();
-        };
- 
+        } else {
+            msg.innerHTML = "Please enter required fields"
+        }
     };
 
-    checkIt(...args){
+    checkMissing(elements){
         let missing = false;
-        args.forEach(element => {
-            if(!element.value){
-                element.style.borderColor = "red";
+        for (let i = 0; i < elements.length; i++) {
+            if(!elements[i].value){
+                elements[i].style.borderColor = "red";
                 missing = true;
             } else {
-                element.style.borderColor = "lightskyblue";
+                elements[i].style.borderColor = "lightskyblue";
             }
-        })
+
+        }
         return missing;
     };
 
